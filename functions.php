@@ -39,7 +39,7 @@ add_filter( 'login_headerurl', 'my_login_logo_url' );
 
 /*Change login logo title*/
 function my_login_logo_url_title() {
-    return 'Pasticceria Amodei di Amodei Angelo - Admin Login';
+    return 'Artomultiplo - Admin Login';
 }
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 
@@ -50,23 +50,25 @@ function my_login_stylesheet() {
 add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
 
 
-/* Hide the "description" title in single-product page */
+/* Hide the "description" title in single-product page
+*  Uncomment the filter bellow if you need this
+*/
 
 function remove_product_description_heading() {
 	return '';
 }
+//add_filter( 'woocommerce_product_description_heading', 'remove_product_description_heading' );
 
-add_filter( 'woocommerce_product_description_heading', 'remove_product_description_heading' );
 
 // Turn off Ship to a different address checkbox in cart
 // from https://metorik.com/blog/change-woocommerce-ship-to-a-different-address-default	
 
 add_filter( 'woocommerce_ship_to_different_address_checked', '__return_false' );
 
-/*Remove downloads from my_account page*/
+/*Remove downloads from my_account page, Just uncomment the filter if you need this*/
 /*https://rudrastyh.com/woocommerce/my-account-menu.html*/
 
-add_filter ( 'woocommerce_account_menu_items', 'misha_remove_my_account_links' );
+// add_filter ( 'woocommerce_account_menu_items', 'misha_remove_my_account_links' );
 function misha_remove_my_account_links( $menu_links ){
  
     unset( $menu_links['downloads'] ); // Addresses
@@ -84,13 +86,16 @@ function custom_archive_description(){
     endif;
 }
 
-/*Hide flat rati if free shipping is available*/
+/* Hide flat rate if free shipping is available
+*  From: https://businessbloomer.com/woocommerce-hide-shipping-options-free-shipping-available/
+*/
 
 add_filter( 'woocommerce_package_rates', 'artomultiplo_unset_shipping_when_free_is_available_in_zone', 10, 2 );
    
 function artomultiplo_unset_shipping_when_free_is_available_in_zone( $rates, $package ) {
       
-// Only unset rates if free_shipping is available
+/* Only unset rates if free_shipping is available */
+
 if ( isset( $rates['free_shipping:2'] ) ) {
      unset( $rates['flat_rate:1'] );
 }     
@@ -100,7 +105,6 @@ return $rates;
 }
 
 /*Login Logo and Admin Menu Logo*/
-
 /*Add a logo in admin left menu*/
 
 add_action('admin_menu', 'artomultiplo_admin_menu_logo');
