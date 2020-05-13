@@ -21,9 +21,9 @@ function my_login_logo() { ?>
     <style type="text/css">
         #login h1 a, .login h1 a {
         background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/artomultiplo-login-logo.svg);
-        height:150px;
-        width:150px;
-        background-size: 150px 150px;
+        height:60px;
+        width:60px;
+        background-size: 60px 60px;
         background-repeat: no-repeat;
         padding-bottom: 0px;
         }
