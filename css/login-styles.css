@@ -1,0 +1,13 @@
+body {
+    background: #f4f4f4;
+}
+
+.login form{
+	background: transparent;
+	box-shadow: none;
+	border:none;
+}
+
+.login form .input, .login input[type="text"]{
+	border-radius: 10px;
+}

@@ -1,0 +1,541 @@
+/*
+Theme Name: Artomultiplo's Woocommerce GP Child
+Template: generatepress
+Theme URI: https://artomultiplo.eu
+Author: Roberto Enrique Briceno Garcia
+Author URI: https://artomultiplo.eu
+Description: A woocommerce optimized GP child.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: amgpc
+Tags: two-columns, three-columns, one-column, right-sidebar, left-sidebar, fluid-layout, fixed-layout, responsive-layout, flexible-header, full-width-template, buddypress, custom-header, custom-background, custom-menu, custom-colors, sticky-post, threaded-comments, translation-ready, featured-images, theme-options, light, white, dark, black, blue, brown, gray, green, orange, pink, purple, red, silver, tan, yellow
+*/
+* {
+	box-sizing: border-box;
+}
+
+/*Amodei Site Specific Styles*/
+
+/* Desktop Header Area:
+*  Added using a custom GP Hook using Elements */
+
+.am-header-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	align-items: center;
+	padding: 40px 0;
+}
+
+.am-header-grid .extra-info {
+	font-family: 'Montserrat', sans-serif;
+	text-align: left;
+}
+
+.am-header-grid .extra-info span {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.am-header-grid .logo-desktop {
+	text-align: center;
+}
+
+.am-header-grid .am-cart-area {
+	text-align: right;
+}
+
+/* Hide Cart on menu for desktop */
+@media (min-width:769px) {
+	.main-navigation li.wc-menu-item.menu-item-align-right.has-items,
+	.main-navigation li.wc-menu-item.menu-item-align-right {
+		display: none !important;
+	}
+
+}
+
+/*FESTI CART*/
+body div.festi-cart-product-count-and-price {
+	text-align: left;
+	padding: 10px 0px;
+}
+
+div.festi-cart-pop-up-content div.festi-cart-pop-up-products-content div#popup-nav-wrapper {
+	text-align: center;
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+div#popup-nav-wrapper {
+	padding-bottom: 10px;
+}
+
+/*Making popup wider*/
+@media (max-width: 768px){
+	body div#festi-cart-pop-up-content div.festi-cart-pop-up-body {
+	    width: 90% !important;
+	}
+}
+
+.festi-cart-inner-wrap {
+	margin-bottom: 0 !important;
+	text-align: left;
+}
+
+/*WOOOOOOCOMERCE*/
+
+/*Reduce the spacing on woocommerce tables*/
+.woocommerce table.shop_table th,
+.woocommerce table.shop_table td {
+	padding: 5px 10px !important;
+}
+
+/*Adding a highlight border in the order review area at checkout*/
+#order_review {
+	box-sizing: border-box;
+	border: 1px solid #ffeeba;
+	padding: 10px 10px 0 10px;
+	background: rgba(255, 243, 205, 0.09);
+}
+
+/*Tiding the order review title a little*/
+#order_review_heading {
+	box-sizing: border-box;
+	color: #856404;
+	background: #ffeeba;
+	display: block;
+	padding: 10px;
+	margin-bottom: 0;
+}
+
+/*Highlighting the payment boxes*/
+.payment_box {
+	box-sizing: border-box;
+	background: #fff !important;
+	margin-top: 0 !important;
+	border: 1px solid rgba(0, 0, 0, .07);
+}
+
+/*Resizing the quantity buttons sitewide*/
+.do-quantity-buttons form .quantity:not(.buttons-added):not(.hidden):after,
+.do-quantity-buttons form .quantity:not(.buttons-added):not(.hidden):before,.woocommerce form .quantity.buttons-added .minus,.woocommerce form .quantity.buttons-added .plus,.woocommerce form .quantity.buttons-added .qty {
+	width: 30px !important;
+	min-height: 30px !important;
+}
+
+/*Removing some Cart totals ::before elements*/
+.woocommerce .cart-collaterals table.shop_table_responsive tr td::before,
+.woocommerce-page .cart-collaterals table.shop_table_responsive tr td::before {
+	content: none;
+}
+
+/*Remove the alternating background color and adding a separator for cart items*/
+.woocommerce .cart-collaterals table.shop_table_responsive tbody th,
+.woocommerce-page .cart-collaterals table.shop_table_responsive tbody th,
+.woocommerce .cart-collaterals table.shop_table_responsive tbody td,
+.woocommerce-page .cart-collaterals table.shop_table_responsive tbody tr {
+	border: 1px solid rgba(0, 0, 0, .1) !important;
+	background: transparent;
+}
+
+/*Hacking the width of header rows in cart collaterals table*/
+.woocommerce .cart-collaterals table.shop_table_responsive tbody th,
+.woocommerce-page .cart-collaterals table.shop_table_responsive tbody th {
+	display: table-cell;
+}
+
+/*Hide the Update Cart button if is disabled*/
+.am-cart-form-container .button:disabled[disabled] {
+	display: none !important;
+}
+
+/* Hide bottom border on Update Cart Button TD container */
+.am-cart-form-container .woocommerce-cart-form td.actions {
+	border-bottom: none !important;
+}
+
+/* Change color of Update Cart Button */
+.am-cart-form-container .woocommerce-cart-form td.actions .button {
+	background: #0069d9 !important;
+}
+
+.am-cart-form-container .woocommerce-cart-form td.actions .button:hover {
+	background: #007bff !important;
+}
+
+/*Change the styling of the Update Cart Button if Enabled*/
+
+/*Checkout*/
+
+/*Adding a border around the login and coupon dropdowns in checkout and styling it a bit */
+
+.woocommerce-error,
+.woocommerce-info,
+.woocommerce-message {
+	border-left: none !important;
+}
+
+form.woocommerce-form.woocommerce-form-login.login,
+form.checkout_coupon.woocommerce-form-coupon {
+	box-sizing: border-box !important;
+	padding: 15px !important;
+	border-left: 4px solid #cce5ff !important;
+	border-right: 4px solid #cce5ff !important;
+	border-bottom: 4px solid #cce5ff !important;
+	border-top: none !important;
+	border-radius: 0 !important;
+	margin-top: -15px !important;
+}
+
+/*Figgling with the contents of the coupon wrapper on checkout*/
+.am-coupon-checkout-wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.am-coupon-checkout-wrapper p {
+	margin-bottom: 0;
+}
+
+p.artomultiplo-checkout-coupon-element .button {
+	background: #0069d9 !important;
+	border: 1px solid #0069d9;
+}
+
+p.artomultiplo-checkout-coupon-element .button:hover {
+	background: #007bff !important;
+	border: 1px solid #007bff;
+}
+
+/*Login form on checkout*/
+.woocommerce-checkout .woocommerce-form-login .form-row.form-row-first,
+.woocommerce-checkout .woocommerce-form-login .form-row.form-row-last {
+	float: none;
+}
+
+/*Making the store notices boxes smaller*/
+.woocommerce-error,
+.woocommerce-info,
+.woocommerce-message {
+	padding: 8px 10px !important;
+	border: 0;
+	border-left: 0px solid rgba(0, 0, 0, .3) !important;
+	margin-bottom: 10px;
+}
+
+/*Hacking the width of header rows in order review table on checkout*/
+.shop_table.woocommerce-checkout-review-order-table th.product-name {
+	width: 50%;
+}
+
+/* Styling for https://www.themepoints.com/product/woocommerce-category-accordion/ */
+.widget_tpwc_category_accordions ul li {
+	padding: 10px 0 !important;
+	background: none !important;
+}
+
+/*Woocommerce Minicart in menu*/
+.widget_shopping_cart .woocommerce-mini-cart__buttons {
+	flex-direction: column;
+}
+
+#wc-mini-cart .button {
+	color: #ffffff;
+	width: 100%;
+	margin: 0px 0px 3px 0;
+}
+
+#wc-mini-cart .button.wc-forward {
+	box-sizing: border-box;
+	background: transparent;
+	color: #000;
+	border: 1px solid #dadada;
+}
+
+#wc-mini-cart .button.wc-forward:hover {
+	color: #000;
+	background: rgba(0, 0, 0, .05);
+}
+
+#wc-mini-cart .button.checkout.wc-forward {
+	background: #ffc107;
+	border-color: #ffc107;
+}
+
+#wc-mini-cart .button.checkout.wc-forward:hover {
+	background: #e0a800;
+	border-color: #e0a800;
+}
+
+/*Change color of apply coupon on Cart */
+.am-cart-coupon .coupon button {
+	background: #B7B7B7 !important;
+}
+
+.am-cart-coupon .coupon button:hover {
+	background: #999999 !important;
+}
+
+/*Mobile styles*/
+@media (max-width:768px) {
+
+	/*fixing the spacing in woocommerce product listings*/
+	.wc-columns-container .products,
+	.woocommerce .related ul.products,
+	.woocommerce .up-sells ul.products {
+		grid-gap: 10px !important;
+	}
+
+	/*Hacking the table headers on cart page*/
+	.woocommerce table.shop_table_responsive thead,
+	.woocommerce-page table.shop_table_responsive thead,
+	.woocommerce table.shop_table_responsive tr,
+	.woocommerce-page table.shop_table_responsive tr {
+		display: table-row;
+	}
+
+	/*Hide price and subtotal headers in cart table*/
+	.shop_table th.product-price,
+	.shop_table th.product-subtotal {
+		display: none;
+	}
+
+	/*Tweaking the layout of the cart table's header in mobile*/
+	.shop_table th.product-name {
+		text-align: left;
+		width: 100%;
+	}
+
+	.shop_table th.product-quantity {
+		text-align: right;
+	}
+
+	/*Avoid woocommerce message links overlaping the whole thing */
+	.woocommerce-message {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+
+	/*Avoid woocommerce info links overlaping the whole thing */
+	.woocommerce-info {
+		display: flex;
+		flex-direction: column;
+	}
+
+	/*Tweaking the layout of the Coupon Area on cart*/
+	.am-cart-coupon input#coupon_code,
+	.am-cart-coupon .button {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	.am-coupon-checkout-wrapper {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	p.artomultiplo-checkout-coupon-element,
+	p.artomultiplo-checkout-coupon-element,
+	p.artomultiplo-checkout-coupon-element input[type="text"] {
+		width: 100%;
+	}
+
+	/*Tweaking the layout of Coupon Area on checkout*/
+	.checkout_coupon.woocommerce-form-coupon .form-row.form-row-first,
+	.checkout_coupon.woocommerce-form-coupon .form-row.form-row-last,
+	.checkout_coupon.woocommerce-form-coupon button {
+		float: none;
+		width: 100%
+	}
+
+	.checkout_coupon.woocommerce-form-coupon p,
+	.woocommerce-form.woocommerce-form-login.login p {
+		margin-bottom: 8px;
+	}
+
+	/*Login form on checkout*/
+	.woocommerce-checkout .woocommerce-form-login .form-row.form-row-first,
+	.woocommerce-checkout .woocommerce-form-login .form-row.form-row-last {
+		float: none;
+		width: 100%;
+	}
+
+	/*Bringing back item's image on cart table*/
+	.woocommerce #content table.cart .product-thumbnail,
+	.woocommerce table.cart .product-thumbnail,
+	.woocommerce-page #content table.cart .product-thumbnail,
+	.woocommerce-page table.cart .product-thumbnail {
+		display: block;
+		text-align: left !important;
+	}
+
+	/*Resizing that image*/
+	.woocommerce-cart table.cart img {
+		width: 75px;
+	}
+
+	/*Removing other ::before elements on cart item descriptions*/
+	td.product-thumbnail:before,
+	td.product-name:before,
+	td.product-price:before,
+	td.product-quantity:before {
+		content: "" !important;
+	}
+
+	/*Remove border bottom from cells in product items on cart*/
+	tr.woocommerce-cart-form__cart-item.cart_item td {
+		border-bottom: none !important;
+	}
+
+	/*The css grid magic begins here:*/
+	tr.woocommerce-cart-form__cart-item.cart_item {
+		display: grid !important;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+		grid-template-columns: 80px auto 100px;
+	}
+
+	/*Absolute positioning of the remove-item "X" button*/
+	tr.woocommerce-cart-form__cart-item.cart_item td.product-remove {
+		position: absolute;
+	}
+
+	/*Resetting the text align of the product name on cart item*/
+	tr.woocommerce-cart-form__cart-item.cart_item td.product-name {
+		text-align: left !important;
+	}
+
+	/*This is the mobile product price we added on cart.php @ line 86*/
+	.am-mobile-product-price {
+		display: block;
+	}
+
+	/*Vertically centering the increase/decrease quantity buttons on cart items*/
+	tr.woocommerce-cart-form__cart-item.cart_item td.product-quantity {
+		align-self: center;
+	}
+
+	/*Hiding product price and subtotal cells from each table item*/
+	tr.woocommerce-cart-form__cart-item.cart_item td.product-price,
+	tr.woocommerce-cart-form__cart-item.cart_item td.product-subtotal {
+		display: none !important;
+	}
+
+	/*remove the alternate row shading*/
+	.woocommerce table.shop_table_responsive tr:nth-child(2n) td,
+	.woocommerce-page table.shop_table_responsive tr:nth-child(2n) td {
+		background: transparent !important;
+	}
+
+	/* Making the "my account" menu friendlier on mobile*/
+	nav.woocommerce-MyAccount-navigation ul {
+		display: flex;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		border: none;
+		overflow: -moz-scrollbars-none;
+		-ms-overflow-style: none;
+		margin-bottom: 20px;
+	}
+
+	nav.woocommerce-MyAccount-navigation ul::-webkit-scrollbar {
+		width: 0 !important
+	}
+
+	nav.woocommerce-MyAccount-navigation ul li {
+		display: inline-block;
+		flex: 0 0 auto;
+	}
+
+	nav.woocommerce-MyAccount-navigation ul li a {
+		padding: 5px 15px;
+		background: transparent;
+		margin: 0 2px;
+		border-radius: 5px;
+		border: 1px dashed #dadada;
+	}
+
+	.woocommerce-MyAccount-navigation li.is-active a:after {
+		content: '';
+	}
+
+	.woocommerce-MyAccount-navigation li.is-active a {
+		background: #c64f4b;
+		color: white !important;
+		border: 1px solid #c64f4b;
+	}
+
+}
+
+/*Reducing policy text size*/
+.woocommerce-privacy-policy-text {
+	font-size: 15px;
+}
+
+@media (max-width:768px) {
+}
+
+/*Not Mobile*/
+@media (min-width:769px) {
+
+	/*Hide product price added on cart.php for larger than mobile*/
+	.am-mobile-product-price {
+		display: none;
+	}
+
+	/*Add spacing in coupon checkout form items*/
+	.am-coupon-checkout-wrapper p {
+		margin-right: 10px;
+	}
+
+	/*Coupon area in Cart*/
+	.am-cart-coupon .coupon {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.am-cart-coupon .coupon .input-text {
+		margin-bottom: 10px;
+	}
+
+	/*Making cart image bigger*/
+
+	/*Resizing that image*/
+	.woocommerce-cart table.cart img {
+		width: 100px;
+	}
+
+}
+
+/*Small desktop*/
+@media (min-width:769px) and (max-width:1024px) {
+
+	/*Slightly different layout for cart in smaller desktops*/
+	.am-woo-cart-container {
+		display: block;
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+}
+
+/*Standard Desktop*/
+@media(min-width:1025px) {
+
+	/*Rearranging the cart page*/
+	.am-woo-cart-container {
+		display: grid;
+		grid-template-columns: 750px auto;
+		grid-gap: 20px
+	}
+
+}
+
+.am-cart-form-container {
+}
+
+/*Unfloating and expanding cart collaterals*/
+.woocommerce .cart-collaterals .cart_totals,
+.woocommerce-page .cart-collaterals .cart_totals {
+	float: none;
+	width: 100%
+}
