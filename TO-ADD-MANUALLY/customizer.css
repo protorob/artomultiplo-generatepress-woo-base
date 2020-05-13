@@ -1,0 +1,237 @@
+/*This CSS is intended to be placed on the customizer*/
+
+/* Top Bar
+*  I'm adding a three widgets in the top bar:
+*  - a Custom HTML widget for XootiX logout shortcode - class: logout-top-bar; - Widget Logic: is_user_logged_in();
+*  - a Custom HTML widget for XootiX login/signup shortcode - class: login-top-bar;
+*  - a Lightweight Social Icon widget for the social icons - class: top-bar-contact;
+*/
+
+.inside-top-bar.grid-container.grid-parent {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row-reverse;
+}
+
+.inside-top-bar.grid-container.grid-parent:before,
+.inside-top-bar.grid-container.grid-parent:after {
+	display: none
+}
+
+.inside-top-bar {
+	padding: 5px 0px;
+}
+
+
+
+.inside-top-bar aside.top-bar-contact {
+	margin-right: auto !important;
+	margin-left: 0 !important;
+}
+
+.logout-top-bar {
+	margin-left: 10px;
+	margin-right: 0 !important;
+}
+
+.top-bar-contact .lsi-social-icons li {
+	margin-bottom: 0 !important;
+}
+
+.top-bar-contact .lsi-social-icons li a {
+	padding: 4px !important;
+}
+
+@media(max-width:768px) {
+	.inside-top-bar {
+		padding: 5px 10px;
+	}
+
+}
+
+/* Mobile Menu Bar Minicart
+*  This targets just the Generatepress Minicart in the mobile header
+*/
+
+.wc-mobile-cart-items.has-items a {
+	background: #8fbc8f;
+	padding: 5px;
+	line-height: initial;
+	color: #fff;
+	font-weight: 300;
+}
+
+.wc-mobile-cart-items.has-items a:hover,
+.wc-mobile-cart-items.has-items a:active {
+	color: #fff;
+}
+
+.menu-item-align-right.has-items a.cart-contents,
+.menu-item-align-right.has-items a.cart-contents:hover {
+	background: #ffc107 !important;
+	color: #352a0a !important;
+}
+
+#wc-mini-cart {
+	top: 60px;
+	width: 350px;
+}
+
+.cart-contents>span.number-of-items {
+	background: #1c9c14;
+	font-weight: bold;
+	top: -3px;
+}
+
+@media (max-width:768px) {
+	.site-logo.mobile-header-logo {
+		width: 40%;
+	}
+
+	.inside-navigation {
+		align-items: center;
+	}
+
+	/*I'm hiding the search bar in mobile, I'll add-it in a second moment*/
+
+	span.search-item {
+		display: none;
+	}
+
+}
+
+/* ----- Widget Classes ----- */
+
+/*Product Listing Widgets*/
+
+.woocommerce ul.product_list_widget li {
+	margin-bottom: 0px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.woocommerce ul.product_list_widget li:hover {
+	background: rgba(0, 0, 0, 0.01)
+}
+
+.woocommerce ul.product_list_widget li img {
+	float: left;
+	margin-right: 10px;
+	margin-left: 5px;
+	width: 69px;
+	height: auto;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.woocommerce ul.product_list_widget del .woocommerce-Price-amount.amount {
+	color: #000;
+	font-size: 0.8em;
+}
+
+.woocommerce ul.product_list_widget li a {
+	font-weight: normal;
+	line-height: 1.5em;
+	font-size: 0.9em;
+}
+
+.woocommerce ul.product_list_widget li .star-rating {
+	display: none;
+}
+
+/*------WOOCOMMERCE-----*/
+
+/*Align buttons in woo shortcode*/
+
+.woocommerce ul.products li.product.woocommerce-text-align-left .button {
+	padding: 5px 10px;
+	font-size: 15px;
+	width: 100%;
+	text-align: center;
+}
+
+.woocommerce div.product p.price {
+	/*Product price in single product*/
+	font-size: 1.5em;
+	padding: 1em 0;
+	margin-bottom: 0;
+}
+
+.woocommerce div.product p.price del {
+	/*Product sale price linestreaked*/
+	color: #000;
+	font-weight: normal;
+	font-size: 0.8em;
+}
+
+.woocommerce ul.products * {
+	box-sizing: border-box;
+}
+
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product,
+.woocommerce ul.products[class*=columns-] li.product,
+.woocommerce-page ul.products[class*=columns-] li.product {
+	margin-bottom: 1em;
+}
+
+.woocommerce ul.products li.product .woocommerce-placeholder {
+	border: none;
+}
+
+@media (min-width:769px) {
+	.woocommerce ul.products li.product {
+		padding: 15px;
+		border-radius: 5px;
+		transition: all 100ms ease-in-out;
+	}
+
+	ul.products li.product:hover {
+		box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+		transform: scale(1.01, 1.01);
+	}
+
+}
+
+@media (max-width:768px) {
+	.woocommerce ul.products li.product .woocommerce-LoopProduct-link h2,
+	.woocommerce .related ul.products li.product .woocommerce-LoopProduct-link h2 {
+		font-size: 14px;
+		font-weight: 700;
+	}
+
+}
+
+.woocommerce div.product .woocommerce-product-gallery--columns-4 .flex-control-thumbs li:nth-child(4n+1) {
+	clear: none;
+}
+
+/*------FOOTER BAR------*/
+@media (min-width:769px) {
+	.pre-footer-promo {
+		padding: 6em 0;
+	}
+
+	.footer-bar-align-right .copyright-bar {
+		text-align: left;
+	}
+
+	.footer-bar-align-right .footer-bar {
+		max-width: 250px;
+	}
+
+	.inside-site-info.grid-container.grid-parent {
+		display: flex;
+		align-items: center;
+		line-height: 1;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+	}
+
+	.inside-site-info.grid-container.grid-parent:before,
+	.inside-site-info.grid-container.grid-parent:after {
+		display: none;
+	}
+
+}
+
+
