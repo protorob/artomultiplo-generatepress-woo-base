@@ -32,3 +32,9 @@ Primarily, this child theme modifies the display of the Default Checkout and Car
 * Some code snippets from [BusinessBloomer](https://businessbloomer.com/)
 * Some code snippets from [Misha Rudrastyh](https://rudrastyh.com/)
 * Some code snippets from [Meteorik](https://metorik.com/)
+
+
+## If you have some ideas or suggestions:
+
+* Feel free to send me an email at hello at artomultiplo dot eu
+* Send me your pull requests ()
